@@ -3,7 +3,8 @@
 const utf8letters = require('./utf8letters.js')
 
 const identity = (v) => v
-const arrayHave = (v) => { return v.split(' ').map(v => { return isNaN(v) ? `{${v}}` : v }) }
+// const arrayHave = (v) => { return v.split(' ').map(v => { return isNaN(v) ? `{${v}}` : v }) }
+const arrayHave = (v) => { return v.split(' ') }
 
 /** @function
  * @description helper function used to construct query objects

@@ -1,5 +1,5 @@
 {
-  "name": "sequelize-querystring",
+  "name": "sequelize-querystring-ex",
   "version": "0.10.0",
   "description": "Convert the request query string into sequelize compatible where and sort clauses.",
   "main": "index.js",
@@ -14,10 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brpx/node-sequelize-querystring.git"
+    "url": "git+https://github.com/growlot/node-sequelize-querystring-ex.git"
   },
   "bugs": {
-    "url": "https://github.com/brpx/node-sequelize-querystring/issues"
+    "url": "https://github.com/growlot/node-sequelize-querystring-ex/issues"
   },
   "keywords": [
     "querystring",
@@ -25,14 +25,18 @@
     "sequelize"
   ],
   "author": "Ricardo Malta <ricardo@brpx.com>",
+  "contributors": [
+    "Ricardo Malta <ricardo@brpx.com>",
+    "Growlot <growlot.71@gmail.com>"
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/brpx/node-sequelize-querystring#readme",
+  "homepage": "https://github.com/growlot/node-sequelize-querystring-ex#readme",
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "install": "^0.10.1",
     "npm": "^5.0.3",
-    "sequelize": "^4.1.0"
+    "sequelize": "^5.21.4"
   }
 }
