@@ -66,8 +66,8 @@ The filter is also compatible with multiple values operator 'or', 'in', 'notIn',
 The compatible query string to multiple field filter with same value is like as:
 
 ```
-http://localhost:3000/v1/articles?filter=firstName%7ClastName%20like%20%25John%25
-http://localhost:3000/v1/articles?filter=firstName%26lastName%20like%20%25John%25
+http://localhost:3000/v1/articles?filter=firstName%7ClastName like %25John%25
+http://localhost:3000/v1/articles?filter=firstName%26lastName like %25John%25
 ```
 
 ## Contribute
