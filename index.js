@@ -71,12 +71,11 @@ class SequelizeQueryStringParser {
   operators() {
     const identityOps = {
       valFunc: identity,
-      ops: ['gt', 'gte', 'lt', 'lte', 'ne', 'eq', 'not', 'like', 
-      'notLike', 'iLike', 'notILike']
+      ops: ['gt', 'gte', 'lt', 'lte', 'ne', 'eq', 'not', 'like', 'notLike', 'iLike', 'notILike']
     }
     const arrayHaveOps = {
       valFunc: arrayHave,
-      ops: ['or', 'in', 'notIn', 'overlap', 'contains', 'contained', 'between', 'notBetween']
+      ops: ['and', 'or', 'in', 'notIn', 'overlap', 'contains', 'contained', 'between', 'notBetween']
     }
     let resultMap = {}
     for (var opSet of [identityOps, arrayHaveOps]) {
@@ -123,7 +122,25 @@ class SequelizeQueryStringParser {
           if (value.match(/^null$/i) || value.match(/^undefined$/i)) {
             value = null
           }
-          deepPropSet(where, prop, operator.op, operator.valFunc(value))
+          if (prop.includes('|')) {
+            const ors = where[operators['or'].op] || []
+            prop.split('|').forEach(p => {
+              const or = {}
+              deepPropSet(or, p, operator.op, operator.valFunc(value))
+              ors.push(or);
+            })
+            where[operators['or'].op] = ors
+          } else if (prop.includes('&')) {
+            const ands = where[operators['and'].op] || []
+            prop.split('&').forEach(p => {
+              const and = {}
+              deepPropSet(and, p, operator.op, operator.valFunc(value))
+              ands.push(and);
+            })
+            where[operators['and'].op] = ands
+          } else {
+            deepPropSet(where, prop, operator.op, operator.valFunc(value))
+          }
         }
       }
     }

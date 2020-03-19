@@ -62,6 +62,14 @@ The filter is also compatible with multiple values operator 'or', 'in', 'notIn',
 ```
   http://localhost:3000/v1/articles?filter=date between 1995 2020
 ```
+
+The compatible query string to multiple field filter with same value is like as:
+
+```
+http://localhost:3000/v1/articles?filter=firstName%7ClastName%20like%20%25John%25
+http://localhost:3000/v1/articles?filter=firstName%26lastName%20like%20%25John%25
+```
+
 ## Contribute
 
 If you want to contribute your're welcome. Keep in mind:

@@ -1,6 +1,6 @@
 {
   "name": "sequelize-querystring-ex",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Convert the request query string into sequelize compatible where and sort clauses.",
   "main": "index.js",
   "engines": {
