@@ -108,7 +108,7 @@ class SequelizeQueryStringParser {
         // build a regexp to match filter expressions
         const lhs = '[\\w|.]+'
         const op = '\\w+'
-        const rhs = `[A-Za-z0-9.+@:/()%_\\s\\-\\xAA\\xB5\\xBA${utf8letters}]+`
+        const rhs = `[A-Za-z0-9.+@:/()%_~!#$^&*|\\={\\[<>\\]}?+,\`"';\\s\\-\\xAA\\xB4\\xB5\\xBA${utf8letters}]+`
         const expressionRegExp = new RegExp(`(${lhs})\\s+(${op})\\s+(${rhs})`)
         if (parts[i].match(expressionRegExp)) {
           let prop = RegExp.$1
